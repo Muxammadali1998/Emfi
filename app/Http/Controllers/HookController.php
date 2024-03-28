@@ -16,6 +16,7 @@ class HookController extends Controller
         elseif (isset($request->leads)){
             $this->lead($request->leads);
         }
+        return response()->json(['message' => 'Webhook processed successfully']);
     }
 
     public function contact($contacts): void
