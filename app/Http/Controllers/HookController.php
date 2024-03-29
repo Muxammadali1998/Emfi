@@ -64,7 +64,7 @@ class HookController extends Controller
         foreach ($contacts as $contact) {
             $contact['created_at'] = Carbon::createFromTimestamp($contact['created_at']);
             $contact['updated_at'] = Carbon::createFromTimestamp($contact['updated_at']);
-            $contact['contact_id'] = Carbon::createFromTimestamp($contact['updated_at']);
+            $contact['contact_id'] = $contact['id'];
             $contact[ 'responsible_user'] = $user;
             ContactHistory::create( $contact);
         }
@@ -86,7 +86,7 @@ class HookController extends Controller
         foreach ($leads as $lead) {
             $lead['created_at'] = Carbon::createFromTimestamp($lead['created_at']);
             $lead['updated_at'] = Carbon::createFromTimestamp($lead['updated_at']);
-            $lead['contact_id'] = Carbon::createFromTimestamp($lead['updated_at']);
+            $lead['lead_id'] = $lead['updated_at'];
             $lead[ 'responsible_user'] = $user;
             LeadHistory::create( $lead);
         }
