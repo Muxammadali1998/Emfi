@@ -47,18 +47,22 @@ class HookController extends Controller
     public function updateContact($contacts): void
     {
         foreach ($contacts as $contact) {
-            Contact::find($contact['id'])->update($contact);
+            Contact::updateOrCreate([
+                'id'=>$contact['id']
+            ],$contact);
         }
     }
     public function createLead($lead): void
     {
-        Lead::create($lead);
+        Lead::updateOrCreate([
+            'id'=>$lead['id']
+        ],$lead);
     }
 
     public function updateLead($leads): void
     {
         foreach ($leads as $lead){
-            Lead::find($lead['id'])->update($lead);
+            $this->createLead($lead);
         }
     }
 
