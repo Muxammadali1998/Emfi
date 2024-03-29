@@ -24,17 +24,17 @@ class HookController extends Controller
 
     public function contact($contacts): void
     {
-        if($contacts['add']){
+        if(isset($contacts['add'])){
             $this->createContact($contacts['add']);
-        }elseif ($contacts['update']){
+        }elseif (isset($contacts['update'])){
             $this->updateContact($contacts['update']);
         }
     }
     public function lead($leads): void
     {
-        if($leads['add']){
+        if(isset($leads['add'])){
             $this->createLead($leads['add']);
-        }elseif ($leads['update']){
+        }elseif (isset($leads['update'])){
             $this->updateLead($leads['update']);
         }
     }
@@ -47,7 +47,7 @@ class HookController extends Controller
     public function updateContact($contacts): void
     {
         foreach ($contacts as $contact) {
-            Contact::find($contact->id)->update($contact);
+            Contact::find($contact['id'])->update($contact);
         }
     }
     public function createLead($lead): void
@@ -58,7 +58,7 @@ class HookController extends Controller
     public function updateLead($leads): void
     {
         foreach ($leads as $lead){
-            Lead::find($lead->id)->update($lead);
+            Lead::find($lead['id'])->update($lead);
         }
     }
 
