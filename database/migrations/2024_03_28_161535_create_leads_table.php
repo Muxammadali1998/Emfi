@@ -8,7 +8,7 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('leads', function (Blueprint $table) {
-            $table->id();
+            $table->string('id');
             $table->string('name');
             $table->string('old_status_id')->nullable();
             $table->string('status_id')->nullable();
@@ -19,6 +19,7 @@ return new class extends Migration {
             $table->string('created_user_id')->nullable();
             $table->string('date_create')->nullable();
             $table->string('account_id')->nullable();
+            $table->string('pipeline_id')->nullable();
             $table->timestamps();
         });
     }

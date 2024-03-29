@@ -7,15 +7,19 @@ use Illuminate\Database\Eloquent\Model;
 class Lead extends Model
 {
     protected $fillable = [
-        'name',
-        'old_status_id',
+        'id' ,
+        'name' ,
         'status_id',
+        'old_status_id',
         'price',
         'responsible_user_id',
         'last_modified',
         'modified_user_id',
         'created_user_id',
         'date_create',
+        'pipeline_id',
         'account_id',
+        'created_at',
+        'updated_at',
     ];
 }
