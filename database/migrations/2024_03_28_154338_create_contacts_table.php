@@ -8,7 +8,7 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('contacts', function (Blueprint $table) {
-            $table->id();
+            $table->string('id');
             $table->string('name')->nullable();
             $table->string('responsible_user_id')->nullable();
             $table->string('date_create')->nullable();

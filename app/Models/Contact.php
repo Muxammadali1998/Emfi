@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Contact extends Model
 {
     protected $fillable = [
+        'id',
         'name',
         'responsible_user_id',
         'date_create',
@@ -17,5 +18,9 @@ class Contact extends Model
         'linked_company_id',
         'account_id',
         'type',
+        'created_at',
+        'updated_at',
+
     ];
+    public $timestamps = false;
 }
