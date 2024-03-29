@@ -7,9 +7,10 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration {
     public function up(): void
     {
-        Schema::create('leads', function (Blueprint $table) {
-            $table->string('id');
+        Schema::create('lead_histories', function (Blueprint $table) {
+            $table->id();
             $table->string('name');
+            $table->string('lead_id');
             $table->string('old_status_id')->nullable();
             $table->string('status_id')->nullable();
             $table->string('price')->nullable();
@@ -27,6 +28,6 @@ return new class extends Migration {
 
     public function down(): void
     {
-        Schema::dropIfExists('leads');
+        Schema::dropIfExists('lead_histories');
     }
 };

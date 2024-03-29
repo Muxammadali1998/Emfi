@@ -4,24 +4,24 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Contact extends Model
+class LeadHistory extends Model
 {
     protected $fillable = [
-        'id',
-        'name',
+        'id' ,
+        'name' ,
+        'status_id',
+        'old_status_id',
+        'price',
         'responsible_user_id',
         'responsible_user',
-        'date_create',
         'last_modified',
-        'created_user_id',
         'modified_user_id',
-        'company_name',
-        'linked_company_id',
+        'created_user_id',
+        'date_create',
+        'pipeline_id',
         'account_id',
-        'type',
         'created_at',
         'updated_at',
-
     ];
     public $timestamps = false;
 }

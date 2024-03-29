@@ -13,6 +13,7 @@ class Lead extends Model
         'old_status_id',
         'price',
         'responsible_user_id',
+        'responsible_user',
         'last_modified',
         'modified_user_id',
         'created_user_id',

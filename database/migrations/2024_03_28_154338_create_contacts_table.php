@@ -11,6 +11,7 @@ return new class extends Migration {
             $table->string('id');
             $table->string('name')->nullable();
             $table->string('responsible_user_id')->nullable();
+            $table->string('responsible_user')->nullable();
             $table->string('date_create')->nullable();
             $table->string('last_modified')->nullable();
             $table->string('created_user_id')->nullable();

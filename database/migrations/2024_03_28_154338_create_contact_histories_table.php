@@ -7,26 +7,26 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration {
     public function up(): void
     {
-        Schema::create('leads', function (Blueprint $table) {
-            $table->string('id');
-            $table->string('name');
-            $table->string('old_status_id')->nullable();
-            $table->string('status_id')->nullable();
-            $table->string('price')->nullable();
+        Schema::create('contact_histories', function (Blueprint $table) {
+            $table->id();
+            $table->string('name')->nullable();
+            $table->string('contact_id')->nullable();
             $table->string('responsible_user_id')->nullable();
             $table->string('responsible_user')->nullable();
-            $table->string('last_modified')->nullable();
-            $table->string('modified_user_id')->nullable();
-            $table->string('created_user_id')->nullable();
             $table->string('date_create')->nullable();
+            $table->string('last_modified')->nullable();
+            $table->string('created_user_id')->nullable();
+            $table->string('modified_user_id')->nullable();
+            $table->string('company_name')->nullable();
+            $table->string('linked_company_id')->nullable();
             $table->string('account_id')->nullable();
-            $table->string('pipeline_id')->nullable();
+            $table->string('type')->nullable();
             $table->timestamps();
         });
     }
 
     public function down(): void
     {
-        Schema::dropIfExists('leads');
+        Schema::dropIfExists('contact_histories');
     }
 };
