@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contact;
+use App\Models\ContactHistory;
 use App\Models\Lead;
+use App\Models\LeadHistory;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 
@@ -64,7 +66,7 @@ class HookController extends Controller
             $contact['updated_at'] = Carbon::createFromTimestamp($contact['updated_at']);
             $contact['contact_id'] = Carbon::createFromTimestamp($contact['updated_at']);
             $contact[ 'responsible_user'] = $user;
-            Contact::create( $contact);
+            ContactHistory::create( $contact);
         }
     }
 
@@ -86,7 +88,7 @@ class HookController extends Controller
             $lead['updated_at'] = Carbon::createFromTimestamp($lead['updated_at']);
             $lead['contact_id'] = Carbon::createFromTimestamp($lead['updated_at']);
             $lead[ 'responsible_user'] = $user;
-            Lead::create( $lead);
+            LeadHistory::create( $lead);
         }
     }
 
