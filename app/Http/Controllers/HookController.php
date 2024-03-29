@@ -31,6 +31,8 @@ class HookController extends Controller
     {
         if (isset($contacts['add'])) {
             $this->saveContact($contacts['add'], $account['subdomain']??'');
+            $this->saveUpdatedContact($contacts['add'], $account['subdomain']??'');
+
         } elseif (isset($contacts['update'])) {
             $this->saveContact($contacts['update'], $account['subdomain']??'');
             $this->saveUpdatedContact($contacts['update'], $account['subdomain']??'');
@@ -41,6 +43,8 @@ class HookController extends Controller
     {
         if (isset($leads['add'])) {
             $this->saveLead($leads['add'], $account['subdomain']??'');
+            $this->saveUpdatedLead($leads['add'], $account['subdomain']??'');
+
         } elseif (isset($leads['update'])) {
             $this->saveLead($leads['update'], $account['subdomain']??'');
             $this->saveUpdatedLead($leads['update'], $account['subdomain']??'');
