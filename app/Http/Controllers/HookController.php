@@ -10,6 +10,8 @@ class HookController extends Controller
 {
     public function handel(Request $request)
     {
+        info($request->all());
+
         if(isset($request->contacts)){
             $this->contact($request->contacts);
         }
@@ -17,24 +19,23 @@ class HookController extends Controller
             $this->lead($request->leads);
         }
 
-        info($request->all());
         return response()->json(['message' => 'Webhook processed successfully']);
     }
 
     public function contact($contacts): void
     {
-        if($contacts->add){
-            $this->createContact($contacts->add);
-        }elseif ($contacts->update){
-            $this->updateContact($contacts->update);
+        if($contacts['add']){
+            $this->createContact($contacts['add']);
+        }elseif ($contacts['update']){
+            $this->updateContact($contacts['update']);
         }
     }
     public function lead($leads): void
     {
-        if($leads->add){
-            $this->createLead($leads->add);
-        }elseif ($leads->update){
-            $this->updateLead($leads->update);
+        if($leads['add']){
+            $this->createLead($leads['add']);
+        }elseif ($leads['update']){
+            $this->updateLead($leads['update']);
         }
     }
 
